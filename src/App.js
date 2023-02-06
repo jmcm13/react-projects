@@ -1,34 +1,23 @@
 import React, { Component } from 'react';
 
 class App extends Component {
-  state = [
-    {
-      name: "Joshua",
-      age: 25
-    },
-    {
-      name: "Michal",
-      age: 25
-    },
-    {
-      name: "Mundo",
-      age: 25
-    }
-  ]
+  state = {
+    name: "Joshua",
+    age: 25
+  }
   
+  handleOnClick = () => {
+    this.setState({
+      name: "Michal"
+    })
+  }
 
   render() {
     return (
       <div className="App">
-        {this.state.map(data => {
-            return (
-              <div>
-                <p>Name: {data.name}</p>
-                <p>Age: {data.age}</p>
-              </div>
-            );
-          }
-        )}
+        <p>Name: {this.state.name}</p>
+        <p>Age: {this.state.age}</p>
+        <button onClick={this.handleOnClick}>Update</button>
       </div>
     );
   }
